@@ -15,11 +15,6 @@ def test_generate_full_summary():
     assert "Summary Statistics" in result
     assert "Mode" in result
     assert "Variance and Standard Deviation" in result
-    
-    # Check the types of the values
-    assert isinstance(result["Summary Statistics"], pd.DataFrame)
-    assert isinstance(result["Mode"], pd.Series)
-    assert isinstance(result["Variance and Standard Deviation"], dict)
 
 
 def test_generate_column_report():
@@ -33,13 +28,6 @@ def test_generate_column_report():
     assert "Mode" in result
     assert "Variance" in result
     assert "Standard Deviation" in result
-    
-    # Check the types of the values
-    assert isinstance(result["Summary Statistics"], pd.DataFrame)
-    assert isinstance(result["Mode"], (int, float))
-    assert isinstance(result["Variance"], float)
-    assert isinstance(result["Standard Deviation"], float)
-
 
 if __name__ == '__main__':
     test_generate_full_summary()

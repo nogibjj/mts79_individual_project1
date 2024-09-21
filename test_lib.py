@@ -1,7 +1,9 @@
 from mylib.lib import (get_summary_statistics, get_mode, get_variance_std)
+import seaborn as sns
+dataset = sns.load_dataset('diamonds')
 
 def test_get_summary_statistics():
-    summary = get_summary_statistics()
+    summary = get_summary_statistics(dataset)
     assert summary.loc['count', 'price'] == 53940
     assert round(summary.loc['mean', 'price'], 6) == 3932.799722
     assert round(summary.loc['std', 'price'], 6) == 3989.439738
@@ -12,7 +14,7 @@ def test_get_summary_statistics():
     assert summary.loc['max', 'price'] == 18823
   
 def test_get_mode():
-    mode = get_mode()
+    mode = get_mode(dataset)
     assert mode['carat'] == 0.3
     assert mode['cut'] == 'Ideal'
     assert mode['color'] == 'G'
@@ -25,7 +27,7 @@ def test_get_mode():
     assert mode['z'] == 2.7
 
 def test_get_variance_std():
-    variance, std_dev = get_variance_std()
+    variance, std_dev = get_variance_std(dataset)
     assert round(variance, 6) == 15915629.424301
     assert round(std_dev, 6) == 3989.439738
 

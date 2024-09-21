@@ -27,7 +27,7 @@ def test_get_mode():
     assert mode['z'] == 2.7
 
 def test_get_variance_std():
-    variance, std_dev = get_variance_std(dataset)
+    variance, std_dev = get_variance_std(dataset, 'price')
     assert round(variance, 6) == 15915629.424301
     assert round(std_dev, 6) == 3989.439738
 

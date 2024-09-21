@@ -13,7 +13,7 @@ def test_generate_full_summary():
     result.assertIn("Variance and Standard Deviation", result)
     result.assertIsInstance(result["Summary Statistics"], pd.DataFrame)
 
-def test_generate_column_report(self):
+def test_generate_column_report():
     """
     Test if generate_column_report function returns the correct summary for a specific column.
     """
@@ -26,4 +26,4 @@ def test_generate_column_report(self):
 
 if __name__ == '__main__':
     test_generate_full_summary()
-    test_generate_column_report
+    test_generate_column_report()

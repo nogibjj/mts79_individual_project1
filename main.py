@@ -1,3 +1,4 @@
+from mylib.lib import *
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -5,16 +6,45 @@ import seaborn as sns
 
 dataset = sns.load_dataset('diamonds')
 
-def get_summary_statistics():
-    return dataset.describe()
+def generate_full_summary(df):
+    """
+    Generates a full summary report using the summary statistics, mode, variance, and standard deviation.
+    """
+    summary = get_summary_statistics(df)
+    mode = get_mode(df)
+    
+    variance_std_report = {}
+    for col in df.select_dtypes(include=['float64', 'int64']).columns:
+        variance, std_dev = get_variance_std(df, col)
+        variance_std_report[col] = {'Variance': variance, 'Standard Deviation': std_dev}
+    
+    return {
+        "Summary Statistics": summary,
+        "Mode": mode,
+        "Variance and Standard Deviation": variance_std_report
+    }
 
-def get_mode():
-    return dataset.mode().iloc[0]
-
-def get_variance_std():
-    variance = dataset['price'].var()
-    std_dev = dataset['price'].std()
-    return variance, std_dev
+def generate_column_report(df, col):
+    """
+    Generates a summary report for a specific column using mode, variance, and standard deviation.
+    """
+    column_data = df[[col]]  # Select the column to apply functions
+    
+    # Summary statistics for the column
+    summary = get_summary_statistics(column_data)
+    
+    # Mode for the column
+    mode = get_mode(column_data)
+    
+    # Variance and standard deviation for the column
+    variance, std_dev = get_variance_std(df, col)
+    
+    return {
+        "Summary Statistics": summary,
+        "Mode": mode,
+        "Variance": variance,
+        "Standard Deviation": std_dev
+    }
 
 def generate_viz_diamonds(save_as_image=True):
     """Generates and optionally saves the diamond price distribution plot."""
@@ -73,6 +103,3 @@ def save_diamonds_report_to_markdown():
         file.write("![Diamond Price Distribution](diamonds_price_distribution.png)\n")
     
     print("Markdown report saved as 'diamonds_summary.md'.")
-
-if __name__ == '__main__':
-    save_diamonds_report_to_markdown()

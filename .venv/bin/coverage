@@ -1,4 +1,4 @@
-#!/workspaces/mts79-week1/.venv/bin/python
+#!/workspaces/mts79_individual_project1/.venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

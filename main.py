@@ -1,4 +1,4 @@
-from mylib.lib import *
+from mylib.lib import (get_summary_statistics, get_mode, get_variance_std)
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt

@@ -1,6 +1,5 @@
 from main import generate_full_summary, generate_column_report
 import seaborn as sns
-import pandas as pd
 
 dataset = sns.load_dataset('diamonds')
 

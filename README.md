@@ -6,10 +6,10 @@
 ### This repository contains Individual Project 1 for the Data Engineering Systems course. The project involves analyzing the Diamonds dataset using custom-built Python libraries, generating summary reports, and testing the functionality of these libraries.
 ## Project Overview
 This project performs in-depth analysis of a dataset using various statistical techniques, implemented via custom Python libraries. It generates comprehensive reports on the full dataset and individual columns, including summary statistics, mode, and variance.
-## Project Demo
-[Click here to the proejct Demo](https://youtu.be/KxJ4oFML_dw?si=wUZlQHezbXDmpAVL)
 
 It utilizes the **Diamond Dataset** to perform descriptive statistics using **Pandas** on a **Jupyter Notebook**. It generates a comprehensive summary report, offering insights into the dataset's key attributes and statistical measures.
+## Project Demo
+[Click here to the proejct Demo](https://youtu.be/KxJ4oFML_dw?si=wUZlQHezbXDmpAVL)
 ## Repository Structure
 - **mylib/**: Custom-built libraries for data analysis.
 - **test_lib.py**: Tests for the libraries within mylib.
